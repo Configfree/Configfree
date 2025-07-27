@@ -6,97 +6,232 @@
     <title>راهنمای استفاده از کانفیگ‌ها | Configfree</title>
     <meta name="description" content="راهنمای جامع نصب و استفاده از v2rayNG و کانفیگ‌های V2Ray، VMess و Shadowsocks">
     <meta name="keywords" content="راهنمای v2rayNG, آموزش کانفیگ V2Ray, نصب v2rayNG, کانفیگ VPN">
+    <meta name="author" content="Configfree Team">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="راهنمای استفاده از کانفیگ‌ها | Configfree">
+    <meta property="og:description" content="آموزش نصب و استفاده از کانفیگ‌های V2Ray، VMess و Shadowsocks در v2rayNG">
+    <meta property="og:url" content="https://configfree.github.io/Configfree/guide.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://configfree.github.io/Configfree/logo.png">
+    
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "راهنمای Configfree",
-        "url": "https://lightningteam2007.github.io/Configfree.github.io/guide.html",
-        "description": "آموزش نصب و استفاده از کانفیگ‌های V2Ray، VMess و Shadowsocks در v2rayNG"
+        "@type": "TechArticle",
+        "headline": "راهنمای استفاده از کانفیگ‌های Configfree",
+        "description": "آموزش کامل نصب و راه‌اندازی v2rayNG و استفاده از کانفیگ‌های V2Ray، VMess و Shadowsocks",
+        "author": {
+            "@type": "Organization",
+            "name": "Configfree"
+        },
+        "datePublished": "2025-07-28",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Configfree",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://configfree.github.io/Configfree/logo.png"
+            }
+        }
     }
     </script>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://configfree.github.io/Configfree/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://configfree.github.io/Configfree/styles.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet">
+    
+    <!-- Preload -->
+    <link rel="preload" href="https://configfree.github.io/Configfree/script.js" as="script">
 </head>
 <body class="light-mode">
+    <!-- Header -->
     <header class="sticky-header">
         <nav class="nav-bar">
-            <a href="index.html" class="nav-logo">
-                <img src="logo.png" alt="Configfree Logo" class="logo-icon"> Configfree
+            <a href="index.html" class="nav-logo" aria-label="بازگشت به صفحه اصلی">
+                <img src="https://configfree.github.io/Configfree/logo.png" alt="Configfree Logo" class="logo-icon" width="32" height="32">
+                Configfree
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">صفحه اصلی</a></li>
                 <li class="dropdown">
-                    <a href="guide.html">راهنما</a>
+                    <a href="guide.html" aria-current="page">راهنما</a>
                     <ul class="dropdown-menu">
                         <li><a href="#install">نصب v2rayNG</a></li>
                         <li><a href="#usage">استفاده از کانفیگ‌ها</a></li>
+                        <li><a href="#troubleshooting">رفع مشکلات</a></li>
                     </ul>
                 </li>
                 <li><a href="index.html#support">پشتیبانی</a></li>
                 <li><a href="index.html#comments">نظرات</a></li>
             </ul>
-            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="تغییر تم">
+                <span class="theme-icon">🌙</span>
+            </button>
         </nav>
         <div class="header-content">
-            <h1>راهنمای استفاده از کانفیگ‌ها</h1>
-            <p>آموزش قدم‌به‌قدم نصب و استفاده از v2rayNG و کانفیگ‌های ما</p>
+            <h1>راهنمای کامل استفاده از کانفیگ‌ها</h1>
+            <p>آموزش قدم به قدم نصب و راه‌اندازی v2rayNG و کلاینت‌های دیگر</p>
         </div>
     </header>
+
+    <!-- Main Content -->
     <main>
         <div class="container">
-            <div id="install" class="guide-section">
-                <h2>دانلود v2rayNG</h2>
-                <p>برای استفاده از کانفیگ‌های ما، باید اپلیکیشن v2rayNG رو نصب کنید. لینک‌های دانلود رسمی:</p>
-                <ul>
-                    <li><a href="https://github.com/2dust/v2rayNG/releases" target="_blank">اندروید (GitHub)</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.v2ray.ang" target="_blank">اندروید (Google Play)</a></li>
-                    <li><a href="https://github.com/v2ray/v2ray-core/releases" target="_blank">ویندوز (V2Ray Core)</a></li>
-                    <li><a href="https://github.com/v2ray/v2ray-core/releases" target="_blank">مک (V2Ray Core)</a></li>
-                    <li><a href="https://github.com/v2ray/v2ray-core/releases" target="_blank">iOS (از کلاینت‌های Shadowsocks یا V2Ray)</a></li>
-                </ul>
-            </divyman
-            <div id="usage" class="guide-section">
+            <!-- Installation Section -->
+            <section id="install" class="guide-section">
+                <h2>دانلود و نصب v2rayNG</h2>
+                <div class="guide-card">
+                    <h3>برای دستگاه‌های اندروید:</h3>
+                    <ol>
+                        <li>از طریق لینک‌های زیر آخرین نسخه v2rayNG را دانلود کنید:
+                            <ul>
+                                <li><a href="https://github.com/2dust/v2rayNG/releases/latest" target="_blank" rel="noopener noreferrer">دانلود از GitHub (پیشنهادی)</a></li>
+                                <li><a href="https://play.google.com/store/apps/details?id=com.v2ray.ang" target="_blank" rel="noopener noreferrer">دانلود از Google Play</a></li>
+                            </ul>
+                        </li>
+                        <li>پس از دانلود، فایل APK را نصب کنید</li>
+                        <li>در صورت نیاز، نصب از منابع ناشناس را فعال کنید</li>
+                        <li>پس از نصب، برنامه را باز کنید</li>
+                    </ol>
+                    
+                    <h3>برای ویندوز/مک:</h3>
+                    <ol>
+                        <li>V2Ray Core را از <a href="https://github.com/v2fly/v2ray-core/releases" target="_blank" rel="noopener noreferrer">این لینک</a> دانلود کنید</li>
+                        <li>کلاینت مناسب سیستم عامل خود را انتخاب کنید:
+                            <ul>
+                                <li>ویندوز: <a href="https://github.com/2dust/v2rayN/releases" target="_blank" rel="noopener noreferrer">v2rayN</a></li>
+                                <li>مک: <a href="https://github.com/Cenmrev/V2RayX/releases" target="_blank" rel="noopener noreferrer">V2RayX</a></li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <div class="guide-note">
+                        <p>⚠️ توجه: همیشه از منابع رسمی دانلود کنید تا از امنیت دستگاه خود مطمئن شوید.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usage Section -->
+            <section id="usage" class="guide-section">
                 <h2>آموزش استفاده از کانفیگ‌ها</h2>
-                <ol>
-                    <li>وارد <a href="index.html">صفحه اصلی</a> بشید و یه کانفیگ V2Ray یا VMess کپی کنید.</li>
-                    <li>اپلیکیشن v2rayNG رو باز کنید.</li>
-                    <li>به بخش تنظیمات برید و روی «+» بزنید.</li>
-                    <li>گزینه «Import config from clipboard» رو انتخاب کنید.</li>
-                    <li>کانفیگ کپی‌شده رو وارد کنید و ذخیره کنید.</li>
-                    <li>سرور رو انتخاب کنید و روی دکمه اتصال بزنید.</li>
-                    <li>از اینترنت آزاد لذت ببرید!</li>
-                </ol>
-            </div>
-            <div class="guide-section">
+                <div class="guide-card">
+                    <h3>مراحل اتصال:</h3>
+                    <ol>
+                        <li>به <a href="index.html">صفحه اصلی</a> مراجعه کنید</li>
+                        <li>یکی از کانفیگ‌های V2Ray یا VMess را انتخاب کنید</li>
+                        <li>روی دکمه «کپی» کلیک کنید</li>
+                        <li>برنامه v2rayNG را باز کنید</li>
+                        <li>روی علامت «+» در پایین صفحه کلیک کنید</li>
+                        <li>گزینه «Import config from clipboard» را انتخاب کنید</li>
+                        <li>کانفیگ را بررسی و ذخیره کنید</li>
+                        <li>سرور اضافه شده را انتخاب کنید</li>
+                        <li>روی دکمه اتصال (دکمه گرد پایین صفحه) کلیک کنید</li>
+                    </ol>
+                    
+                    <div class="guide-image">
+                        <img src="https://configfree.github.io/Configfree/images/connection-guide.png" alt="آموزش اتصال در v2rayNG" width="600" height="400" loading="lazy">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Troubleshooting Section -->
+            <section id="troubleshooting" class="guide-section">
+                <h2>رفع مشکلات متداول</h2>
+                <div class="guide-card">
+                    <div class="troubleshooting-item">
+                        <h3>اتصال برقرار نمی‌شود</h3>
+                        <ul>
+                            <li>کانفیگ جدیدی از صفحه اصلی دریافت کنید (کانفیگ‌ها هر 2 ساعت آپدیت می‌شوند)</li>
+                            <li>از فعال بودن VPN در دستگاه خود مطمئن شوید</li>
+                            <li>برنامه را مجددا راه‌اندازی کنید</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="troubleshooting-item">
+                        <h3>سرعت پایین است</h3>
+                        <ul>
+                            <li>سرور دیگری را امتحان کنید</li>
+                            <li>از پروتکل‌های مختلف (VMess/VLESS) تست بگیرید</li>
+                            <li>اتصال اینترنت خود را بررسی کنید</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="troubleshooting-item">
+                        <h3>برنامه crash می‌کند</h3>
+                        <ul>
+                            <li>آخرین نسخه برنامه را نصب کنید</li>
+                            <li>دستگاه خود را restart کنید</li>
+                            <li>در صورت ادامه مشکل، از نسخه پایدارتر استفاده کنید</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced Tips -->
+            <section class="guide-section">
                 <h2>نکات پیشرفته</h2>
-                <ul>
-                    <li>برای افزایش امنیت، از پروتکل‌های TLS یا WebSocket استفاده کنید.</li>
-                    <li>اگه سرور کار نکرد، یه کانفیگ جدید تست کنید.</li>
-                    <li>برای سرعت بهتر، سرورهای نزدیک به موقعیت جغرافیایی خودتون رو انتخاب کنید.</li>
-                </ul>
-            </div>
-            <div class="telegram-section">
-                <h2>پشتیبانی و کانفیگ‌های بیشتر</h2>
-                <p>برای دریافت کانفیگ‌های انحصاری و پشتیبانی سریع، به کانال تلگرام ما بپیوندید!</p>
-                <a href="https://t.me/configs_freeiran" target="_blank" class="telegram-btn">پیوستن به کانال تلگرام</a>
-            </div>
+                <div class="guide-card">
+                    <div class="tips-grid">
+                        <div class="tip-item">
+                            <h3>پروتکل‌های امن</h3>
+                            <p>برای امنیت بیشتر، از پروتکل‌های TLS یا WebSocket استفاده کنید</p>
+                        </div>
+                        
+                        <div class="tip-item">
+                            <h3>سرورهای بهینه</h3>
+                            <p>برای سرعت بهتر، سرورهای نزدیک به موقعیت جغرافیایی خود را انتخاب کنید</p>
+                        </div>
+                        
+                        <div class="tip-item">
+                            <h3>مدیریت مصرف باتری</h3>
+                            <p>در اندروید، برنامه را از بهینه‌سازی باتری معاف کنید</p>
+                        </div>
+                        
+                        <div class="tip-item">
+                            <h3>آپدیت منظم</h3>
+                            <p>همیشه از آخرین نسخه v2rayNG استفاده کنید</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Telegram Section -->
+            <section class="telegram-section">
+                <h2>پشتیبانی فنی</h2>
+                <p>برای دریافت راهنمایی بیشتر و حل مشکلات فنی، به کانال تلگرام ما بپیوندید:</p>
+                <a href="https://t.me/configs_freeiran" target="_blank" rel="noopener noreferrer" class="telegram-btn">
+                    پیوستن به کانال پشتیبانی
+                </a>
+            </section>
         </div>
-        <a href="https://t.me/configs_freeiran" target="_blank" class="floating-telegram-btn">
-            <img src="https://telegram.org/img/t_logo.png" alt="لوگوی تلگرام Configfree" class="telegram-icon"> پیوستن به کانال
+
+        <!-- Floating Button -->
+        <a href="https://t.me/configs_freeiran" target="_blank" rel="noopener noreferrer" class="floating-telegram-btn" aria-label="پیوستن به کانال تلگرام">
+            <img src="https://telegram.org/img/t_logo.png" alt="تلگرام" class="telegram-icon" width="24" height="24">
+            <span>پشتیبانی تلگرام</span>
         </a>
     </main>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <p>حقوق این سایت متعلق به Configfree است | ۱۴۰۴</p>
             <div class="footer-links">
-                <a href="https://t.me/configs_freeiran">کانال تلگرام</a>
+                <a href="index.html">صفحه اصلی</a>
                 <a href="guide.html">راهنما</a>
                 <a href="index.html#support">پشتیبانی</a>
-                <a href="mailto:support@configfree.ir">ایمیل</a>
+                <a href="mailto:support@configfree.ir">تماس با ما</a>
             </div>
-            <img src="logo.png" alt="Configfree Logo" class="footer-logo">
+            <img src="https://configfree.github.io/Configfree/logo.png" alt="Configfree Logo" class="footer-logo" width="48" height="48">
         </div>
     </footer>
+
+    <!-- JavaScript -->
+    <script src="https://configfree.github.io/Configfree/script.js"></script>
 </body>
-</html>
+        </html>

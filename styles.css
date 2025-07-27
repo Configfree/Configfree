@@ -1,0 +1,623 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazir', sans-serif;
+    background: linear-gradient(135deg, #f0f2f5, #e0e7ff);
+    direction: rtl;
+    color: #333;
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background: linear-gradient(135deg, #1e293b, #334155);
+    color: #e0e7ff;
+}
+
+.sticky-header {
+    background: linear-gradient(90deg, #2563eb, #1e40af);
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    }
+.sticky-header {
+    position: sticky;
+    top: 0;
+    transition: transform 0.3s ease; /* برای انیمیشن نرم */
+}
+
+.sticky-header.hide {
+    transform: translateY(-100%); /* هدر را به بالا منتقل می‌کند و مخفی می‌شود */
+    }
+.nav-bar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.logo-icon, .footer-logo {
+    width: 32px;
+    height: 32px;
+    margin-left: 0.5rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #e0e7ff;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: #1e40af;
+    border-radius: 8px;
+    padding: 0.5rem;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu li a {
+    font-size: 1rem;
+    padding: 0.5rem;
+    display: block;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    animation: fadeIn 1s ease-in;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.slider {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.slide {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    background: #f8fafc;
+}
+
+body.dark-mode .slide {
+    background: #334155;
+}
+
+.slide.active {
+    display: block;
+    animation: slideIn 0.5s ease;
+}
+
+.slide h3 {
+    font-size: 1.8rem;
+    color: #2563eb;
+    margin-bottom: 1rem;
+}
+
+body.dark-mode .slide h3 {
+    color: #60a5fa;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.slider-btn.prev {
+    right: 1rem;
+}
+
+.slider-btn.next {
+    left: 1rem;
+}
+
+.date-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.date-section h2 {
+    font-size: 1.8rem;
+    color: #2563eb;
+}
+
+body.dark-mode .date-section h2 {
+    color: #60a5fa;
+}
+
+.date-section span {
+    font-weight: bold;
+    color: #1e40af;
+}
+
+body.dark-mode .date-section span {
+    color: #93c5fd;
+}
+
+.intro, .filter-section, .features, .support-section, .news-section, .tools-section, .comments-section, .guide-section {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.intro h2, .filter-section h2, .features h2, .support-section h2, .news-section h2, .tools-section h2, .comments-section h2, .guide-section h2 {
+    font-size: 1.8rem;
+    color: #2563eb;
+}
+
+body.dark-mode .intro h2, body.dark-mode .filter-section h2, body.dark-mode .features h2, body.dark-mode .support-section h2, body.dark-mode .news-section h2, body.dark-mode .tools-section h2, body.dark-mode .comments-section h2, body.dark-mode .guide-section h2 {
+    color: #60a5fa;
+}
+
+.intro p, .support-section p, .news-section p, .guide-section p {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+body.dark-mode .intro p, body.dark-mode .support-section p, body.dark-mode .news-section p, body.dark-mode .guide-section p {
+    color: #d1d5db;
+}
+
+.filter-section select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+body.dark-mode .filter-section select {
+    background: #4b5563;
+    color: #e0e7ff;
+    border-color: #6b7280;
+}
+
+.loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #2563eb;
+    margin: 2rem 0;
+    display: none;
+}
+
+body.dark-mode .loading {
+    color: #60a5fa;
+}
+
+.loading::after {
+    content: '⠙⠚⠛⠜⠝⠞';
+    display: inline-block;
+    animation: spin 1s linear infinite;
+}
+
+.config-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.config-item {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .config-item {
+    background: #374151;
+}
+
+.config-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.config-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 1rem;
+}
+
+.config-text {
+    flex: 1;
+    font-size: 0.95rem;
+    color: #333;
+    word-break: break-all;
+    margin-left: 1rem;
+}
+
+body.dark-mode .config-text {
+    color: #d1d5db;
+}
+
+.config-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.copy-btn, .share-btn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: #059669;
+}
+
+.share-btn {
+    background: #3b82f6;
+}
+
+.share-btn:hover {
+    background: #2563eb;
+}
+
+.copy-count {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+body.dark-mode .copy-count {
+    color: #9ca3af;
+}
+
+.telegram-section {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .telegram-section {
+    background: #334155;
+}
+
+.telegram-section h2 {
+    font-size: 1.8rem;
+    color: #2563eb;
+}
+
+body.dark-mode .telegram-section h2 {
+    color: #60a5fa;
+}
+
+.telegram-section p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+body.dark-mode .telegram-section p {
+    color: #d1d5db;
+}
+
+.telegram-btn {
+    display: inline-block;
+    background: #0088cc;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.telegram-btn:hover {
+    background: #006699;
+    transform: scale(1.05);
+}
+
+.floating-telegram-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0088cc;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+    animation: pulse 2s infinite;
+    z-index: 1000;
+}
+
+.floating-telegram-btn:hover {
+    background: #006699;
+    transform: scale(1.1);
+}
+
+.telegram-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.features ul, .tools-section ul, .guide-section ul, .guide-section ol {
+    list-style-position: inside;
+    text-align: right;
+    margin: 1rem 0;
+}
+
+.features li, .tools-section li, .guide-section li {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.news-item {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .news-item {
+    background: #334155;
+}
+
+.news-item h3 {
+    font-size: 1.3rem;
+    color: #1e40af;
+}
+
+body.dark-mode .news-item h3 {
+    color: #93c5fd;
+}
+
+.comments-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.comments-section input, .comments-section textarea {
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+body.dark-mode .comments-section input, body.dark-mode .comments-section textarea {
+    background: #4b5563;
+    color: #e0e7ff;
+    border-color: #6b7280;
+}
+
+.comments-section textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.submit-btn:hover {
+    background: #059669;
+}
+
+.comment-item {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .comment-item {
+    background: #374151;
+}
+
+.comment-item p {
+    font-size: 1rem;
+    color: #444;
+}
+
+body.dark-mode .comment-item p {
+    color: #d1d5db;
+}
+
+.comment-item small {
+    color: #666;
+}
+
+body.dark-mode .comment-item small {
+    color: #9ca3af;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: #e0e7ff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .nav-bar {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+    }
+
+    .slider {
+        margin: 1rem;
+    }
+
+    .config-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .config-text {
+        margin-left: 0;
+    }
+
+    .copy-btn, .share-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .telegram-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .floating-telegram-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .date-section h2, .intro h2, .filter-section h2, .features h2, .support-section h2, .news-section h2, .tools-section h2, .comments-section h2, .guide-section h2 {
+        font-size: 1.5rem;
+    }
+    }

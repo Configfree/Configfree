@@ -1,0 +1,16 @@
+name: Update Comments
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'comments.json'
+  workflow_dispatch:
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Notify new comment
+        run: |
+          echo "نظری جدید در comments.json اضافه شده. لطفاً بررسی و تأیید کنید."

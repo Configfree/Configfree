@@ -1,23 +1,26 @@
-/* Reset و تنظیمات پایه */
+/* Configfree - Main Stylesheet
+ * Optimized for https://configfree.github.io/Configfree/
+ * Version: 2.1
+ */
+
+/* متغیرهای CSS */
 :root {
-  --primary-color: #2563eb;
-  --primary-dark: #1e40af;
-  --primary-light: #60a5fa;
-  --success-color: #10b981;
-  --success-dark: #059669;
-  --info-color: #3b82f6;
-  --info-dark: #2563eb;
-  --telegram-color: #0088cc;
-  --telegram-dark: #006699;
-  --text-light: #333;
-  --text-dark: #e0e7ff;
-  --bg-light: linear-gradient(135deg, #f0f2f5, #e0e7ff);
-  --bg-dark: linear-gradient(135deg, #1e293b, #334155);
-  --card-bg-light: #ffffff;
-  --card-bg-dark: #374151;
-  --transition: all 0.3s ease;
+  --primary-color: #1d4ed8; /* آبی اصلی */
+  --primary-dark: #1e40af; /* آبی تیره برای هاور */
+  --primary-light: #bfdbfe; /* آبی روشن برای پس‌زمینه */
+  --success-color: #22c55e; /* سبز برای موفقیت */
+  --telegram-color: #0088cc; /* رنگ تلگرام */
+  --telegram-dark: #006b9e; /* تلگرام تیره برای هاور */
+  --text-light: #1f2937; /* متن تیره */
+  --text-dark: #e5e7eb; /* متن روشن */
+  --card-bg-light: #ffffff; /* پس‌زمینه کارت‌ها در حالت روشن */
+  --card-bg-dark: #1f2937; /* پس‌زمینه کارت‌ها در حالت تاریک */
+  --bg-light: #f3f4f6; /* پس‌زمینه صفحه روشن */
+  --bg-dark: #111827; /* پس‌زمینه صفحه تاریک */
+  --transition: all 0.3s ease; /* انیمیشن عمومی */
 }
 
+/* استایل‌های عمومی */
 * {
   margin: 0;
   padding: 0;
@@ -25,13 +28,12 @@
 }
 
 body {
-  font-family: 'Vazir', sans-serif;
+  font-family: 'Vazir', Arial, sans-serif;
   background: var(--bg-light);
-  direction: rtl;
   color: var(--text-light);
   line-height: 1.6;
-  transition: var(--transition);
-  min-height: 100vh;
+  direction: rtl;
+  text-align: right;
 }
 
 body.dark-mode {
@@ -39,265 +41,585 @@ body.dark-mode {
   color: var(--text-dark);
 }
 
-/* بهبود هدر استیکي */
+/* استایل برای container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* هدر */
 .sticky-header {
   position: sticky;
   top: 0;
-  background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
-  color: white;
-  padding: 1rem 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  background: var(--card-bg-light);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: var(--transition);
+}
+
+body.dark-mode .sticky-header {
+  background: var(--card-bg-dark);
 }
 
 .sticky-header.hide {
   transform: translateY(-100%);
 }
 
-/* نوار نوايگيشني بهبود يافته */
 .nav-bar {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
 }
 
 .nav-logo {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   font-size: 1.5rem;
   font-weight: bold;
-  color: white;
   text-decoration: none;
+  color: var(--text-light);
+}
+
+body.dark-mode .nav-logo {
+  color: var(--text-dark);
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-light);
   transition: var(--transition);
 }
 
-.nav-logo:hover {
-  opacity: 0.9;
+body.dark-mode .nav-links a {
+  color: var(--text-dark);
 }
 
-.logo-icon, .footer-logo {
-  width: 32px;
-  height: 32px;
-  margin-left: 0.5rem;
-  object-fit: contain;
+.nav-links a:hover {
+  color: var(--primary-color);
 }
 
-/* منوي آبشاري بهبود يافته */
+.nav-links .dropdown {
+  position: relative;
+}
+
 .dropdown-menu {
   display: none;
   position: absolute;
-  background: var(--primary-dark);
+  top: 100%;
+  right: 0;
+  background: var(--card-bg-light);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  padding: 0.5rem;
-  min-width: 180px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 1100;
+  list-style: none;
+  min-width: 150px;
+}
+
+body.dark-mode .dropdown-menu {
+  background: var(--card-bg-dark);
 }
 
 .dropdown:hover .dropdown-menu {
   display: block;
-  animation: fadeIn 0.3s ease;
 }
 
-/* اسلايدر بهبود يافته */
+.dropdown-menu li {
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-menu a {
+  font-size: 0.9rem;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.header-content {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.header-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.header-content p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+body.dark-mode .header-content p {
+  color: var(--text-dark);
+}
+
+/* اسلایدر */
 .slider {
   position: relative;
-  max-width: 800px;
+  max-width: 100%;
   margin: 2rem auto;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .slide {
   display: none;
   text-align: center;
-  padding: 3rem 2rem;
-  background: var(--card-bg-light);
-  transition: var(--transition);
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-body.dark-mode .slide {
-  background: var(--card-bg-dark);
+.slide.active {
+  display: block;
+  opacity: 1;
 }
 
-/* کارت کانفيگ‌هاي بهبود يافته */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+.slider-btn.prev {
+  right: 1rem;
+}
+
+.slider-btn.next {
+  left: 1rem;
+}
+
+.slider-btn:hover {
+  background: var(--primary-dark);
+}
+
+/* بخش‌های عمومی */
+section {
+  padding: 2rem 0;
+}
+
+section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* تاریخ */
+.date-section {
+  text-align: center;
+}
+
+/* اینトロ */
+.intro {
+  text-align: center;
+}
+
+.intro a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.intro a:hover {
+  text-decoration: underline;
+}
+
+/* فیلتر */
+.filter-section select {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--primary-light);
+  font-family: 'Vazir', Arial, sans-serif;
+  font-size: 1rem;
+}
+
+/* لودینگ */
+.loading {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.loading.active {
+  display: flex;
+}
+
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--primary-light);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* لیست کانفیگ‌ها */
+.config-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
 .config-item {
   background: var(--card-bg-light);
   border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
+  gap: 1rem;
   align-items: center;
   transition: var(--transition);
-  margin-bottom: 1rem;
 }
 
 body.dark-mode .config-item {
   background: var(--card-bg-dark);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.config-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* دکمه تلگرام شناور بهبود يافته */
-.floating-telegram-btn {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: var(--telegram-color);
-  color: white;
-  padding: 1rem 1.5rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 1rem;
+.config-icon-container {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  transition: var(--transition);
-  z-index: 1000;
-  animation: pulse 1.5s infinite;
 }
 
-.floating-telegram-btn:hover {
-  background: var(--telegram-dark);
-  transform: scale(1.05);
-  animation: none;
+.config-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
-/* انيميشن‌هاي جديد */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(30px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); box-shadow: 0 6px 16px rgba(0, 136, 204, 0.3); }
-  50% { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0, 136, 204, 0.5); }
-  100% { transform: scale(1); box-shadow: 0 6px 16px rgba(0, 136, 204, 0.3); }
-}
-
-/* رسپانسيو بهبود يافته */
-@media (max-width: 768px) {
-  .nav-bar {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-  }
-
-  .dropdown-menu {
-    position: static;
-    box-shadow: none;
-    width: 100%;
-  }
-
-  .slider {
-    margin: 1rem;
-    border-radius: 8px;
-  }
-
-  .slide {
-    padding: 2rem 1rem;
-  }
-
-  .config-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .config-actions {
-    width: 100%;
-  }
-
-  .copy-btn, .share-btn {
-    width: 100%;
-  }
-
-  .floating-telegram-btn {
-    bottom: 1rem;
-    right: 1rem;
-    padding: 0.8rem 1.2rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* افزودن استيل براي حالت loading جديد */
-.loading-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 200px;
-}
-
-.loading-spinner {
-  width: 50px;
-  height: 50px;
-  border: 5px solid rgba(37, 99, 235, 0.2);
-  border-radius: 50%;
-  border-top-color: var(--primary-color);
-  animation: spin 1s linear infinite;
-}
-
-/* بهبود فوتر */
-footer {
-  background: linear-gradient(90deg, var(--primary-dark), var(--primary-color));
+.config-type-badge {
+  background: var(--primary-color);
   color: white;
-  padding: 2rem 0;
-  margin-top: 3rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
 }
 
+.config-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.config-text {
+  word-break: break-all;
+  font-size: 0.9rem;
+}
+
+.config-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.copy-btn, .share-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Vazir', Arial, sans-serif;
+  transition: var(--transition);
+}
+
+.copy-btn:hover, .share-btn:hover {
+  background: var(--primary-dark);
+}
+
+.copy-count {
+  background: var(--primary-light);
+  color: var(--text-light);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+/* کارت‌های راهنما */
+.guide-card {
+  background: var(--card-bg-light);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+body.dark-mode .guide-card {
+  background: var(--card-bg-dark);
+}
+
+.guide-note {
+  background: var(--primary-light);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.guide-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.troubleshooting-item {
+  margin-bottom: 1.5rem;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.tip-item {
+  background: var(--card-bg-light);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+body.dark-mode .tip-item {
+  background: var(--card-bg-dark);
+}
+
+/* نظرات */
+.comment-item {
+  background: var(--card-bg-light);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+body.dark-mode .comment-item {
+  background: var(--card-bg-dark);
+}
+
+.comment-item.pending {
+  opacity: 0.7;
+}
+
+.submit-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Vazir', Arial, sans-serif;
+  transition: var(--transition);
+}
+
+.submit-btn:hover {
+  background: var(--primary-dark);
+}
+
+/* دکمه تلگرام */
+.telegram-btn, .floating-telegram-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--telegram-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.telegram-btn:hover, .floating-telegram-btn:hover {
+  background: var(--telegram-dark);
+}
+
+.floating-telegram-btn {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.telegram-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* اعلان‌ها */
+.notification {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--success-color);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  transition: opacity 0.3s ease;
+  font-family: 'Vazir', Arial, sans-serif;
+}
+
+.notification.error {
+  background: #dc2626;
+}
+
+.notification.fade-out {
+  opacity: 0;
+}
+
+/* پیام‌های خطا */
+.error-message, .empty-message {
+  text-align: center;
+  padding: 1rem;
+  background: var(--primary-light);
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.error-message button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Vazir', Arial, sans-serif;
+}
+
+.error-message button:hover {
+  background: var(--primary-dark);
+}
+
+/* فوتر */
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 1rem;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 1.5rem;
-  padding: 0 1rem;
-  text-align: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .footer-links {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .footer-links a {
-  color: white;
+  color: var(--text-light);
   text-decoration: none;
   transition: var(--transition);
 }
 
+body.dark-mode .footer-links a {
+  color: var(--text-dark);
+}
+
 .footer-links a:hover {
-  color: #e0e7ff;
-  text-decoration: underline;
+  color: var(--primary-color);
 }
 
 .footer-logo {
   width: 48px;
   height: 48px;
-  margin-top: 1rem;
-    }
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: static;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .dropdown-menu li {
+    padding: 0.5rem 0;
+  }
+
+  .header-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .header-content p {
+    font-size: 1rem;
+  }
+
+  .config-list {
+    grid-template-columns: 1fr;
+  }
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-card {
+    padding: 1rem;
+  }
+
+  .telegram-btn, .floating-telegram-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .slider-btn {
+    padding: 0.3rem 0.8rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-bar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  }

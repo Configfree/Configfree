@@ -1,0 +1,58 @@
+name: Update Configs and Deploy to GitHub Pages
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # هر 30 دقیقه
+  workflow_dispatch:  # امکان اجرای دستی
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: دریافت مخزن Configfree
+        uses: actions/checkout@v4
+        with:
+          repository: Lightningteam2007/Configfree.github.io
+          path: configfree
+          token: ${{ secrets.ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+      - name: دریافت فایل processed_configs.txt از مخزن Config
+        uses: actions/checkout@v4
+        with:
+          repository: Lightningteam2007/Config
+          path: config
+          token: ${{ secrets.ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+      - name: کپی فایل processed_configs.txt به configs.txt
+        run: |
+          if [ -f config/processed_configs.txt ]; then
+            cp config/processed_configs.txt configfree/configs.txt
+            echo "فایل configs.txt با موفقیت کپی شد"
+            cat configfree/configs.txt | head -n 5  # چاپ 5 خط اول برای دیباگ
+          else
+            echo "خطا: فایل processed_configs.txt پیدا نشد"
+            exit 1
+          fi
+      - name: تنظیم محیط GitHub Pages
+        uses: actions/configure-pages@v4
+      - name: آپلود فایل‌ها به GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: configfree
+      - name: انتشار به GitHub Pages
+        uses: actions/deploy-pages@v4
+      - name: Commit تغییرات به مخزن
+        run: |
+          cd configfree
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git pull origin main --rebase  # Pull تغییرات ریموت
+          git add configs.txt
+          if git diff --staged --quiet; then
+            echo "هیچ تغییری برای کامیت وجود ندارد"
+          else
+            git commit -m "به‌روزرسانی کانفیگ‌ها از processed_configs.txt"
+            git push origin main
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN || secrets.GITHUB_TOKEN }}

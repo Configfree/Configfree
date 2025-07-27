@@ -1,8 +1,8 @@
-name: Update and Replace Configs
+name: Update Configs and Deploy to GitHub Pages
 on:
   schedule:
     - cron: '*/30 * * * *'  # هر 30 دقیقه
-  workflow_dispatch:        # امکان اجرای دستی
+  workflow_dispatch:  # امکان اجرای دستی
 
 permissions:
   contents: write
@@ -10,11 +10,15 @@ permissions:
   id-token: write
 
 jobs:
-  replace-configs:
+  update-and-deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    environment:  # اضافه کردن محیط deployment
+      name: github-pages
+      url: https://configfree.github.io/Configfree/
+
     steps:
-      # مرحله 1: دریافت مخزن هدف (configfree/Configfree)
+      # مرحله 1: دریافت مخزن هدف
       - name: Checkout Target Repository
         uses: actions/checkout@v4
         with:
@@ -23,7 +27,7 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      # مرحله 2: دریافت مخزن منبع (Lightningteam2007/Config)
+      # مرحله 2: دریافت مخزن منبع
       - name: Checkout Source Repository
         uses: actions/checkout@v4
         with:
@@ -34,36 +38,31 @@ jobs:
       # مرحله 3: جایگزینی کامل کانفیگ‌ها
       - name: Replace Configs
         run: |
-          # بررسی وجود فایل منبع
           if [ ! -f config-source/processed_configs.txt ]; then
             echo "::error::فایل processed_configs.txt یافت نشد!"
             exit 1
           fi
 
-          # حذف فایل قدیمی (اگر وجود دارد)
           rm -f configfree/configs.txt
-
-          # کپی فایل جدید با همان نام
           cp config-source/processed_configs.txt configfree/configs.txt
 
-          # اعتبارسنجی
           LINE_COUNT=$(wc -l < configfree/configs.txt)
           echo "تعداد کانفیگ‌های جدید: $LINE_COUNT"
           echo "نمونه کانفیگ‌ها:"
           head -n 5 configfree/configs.txt
 
-      # مرحله 4: تنظیمات GitHub Pages
+      # مرحله 4: تنظیمات Pages
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      # مرحله 5: آپلود تغییرات
+      # مرحله 5: آپلود آرتیفکت
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: configfree
           retention-days: 1
 
-      # مرحله 6: انتشار
+      # مرحله 6: استقرار
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         id: deployment
@@ -75,11 +74,10 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
           
-          git add configs.txt
-          
-          if git diff --cached --quiet; then
+          if git diff --quiet -- configs.txt; then
             echo "هیچ تغییری وجود ندارد"
           else
+            git add configs.txt
             git commit -m "🔁 جایگزینی کامل کانفیگ‌ها - $(date +'%Y-%m-%d %H:%M')"
             git pull --rebase origin main
             git push origin main
@@ -87,14 +85,3 @@ jobs:
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-
-      # مرحله 8: تأیید انتشار
-      - name: Verify Deployment
-        if: always()
-        run: |
-          if [[ ${{ steps.deployment.outputs.status }} != 'success' ]]; then
-            echo "::error::استقرار ناموفق بود!"
-            exit 1
-          fi
-          echo "✅ استقرار با موفقیت انجام شد"
-          echo "آدرس سایت: https://configfree.github.io/Configfree/"

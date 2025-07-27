@@ -6,36 +6,58 @@
     <title>کانفیگ رایگان V2Ray و VMess | Configfree 1404</title>
     <meta name="description" content="کانفیگ‌های رایگان و تست‌شده V2Ray، VMess و Shadowsocks برای v2rayNG. هر ۲ ساعت آپدیت توسط ربات!">
     <meta name="keywords" content="کانفیگ رایگان V2Ray, کانفیگ VMess, کانفیگ VPN ایران, Shadowsocks رایگان, v2rayNG">
+    <meta name="author" content="Configfree Team">
+    <meta property="og:title" content="کانفیگ رایگان V2Ray و VMess | Configfree 1404">
+    <meta property="og:description" content="کانفیگ‌های رایگان و تست‌شده V2Ray، VMess و Shadowsocks برای v2rayNG. هر ۲ ساعت آپدیت توسط ربات!">
+    <meta property="og:url" content="https://configfree.github.io/Configfree/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://configfree.github.io/Configfree/logo.png">
+    
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Website",
         "name": "Configfree",
-        "url": "https://lightningteam2007.github.io/Configfree.github.io/",
+        "url": "https://configfree.github.io/Configfree/",
         "description": "ارائه کانفیگ‌های رایگان V2Ray، VMess و Shadowsocks برای v2rayNG با آپدیت هر ۲ ساعت",
         "publisher": {
             "@type": "Organization",
             "name": "Configfree",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://lightningteam2007.github.io/Configfree.github.io/logo.png"
+                "url": "https://configfree.github.io/Configfree/logo.png"
             }
         }
     }
     </script>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://configfree.github.io/Configfree/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://configfree.github.io/Configfree/logo.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://configfree.github.io/Configfree/styles.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet">
+    
+    <!-- JS Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jalali-moment@3.3.10/dist/jalali-moment.min.js"></script>
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://configfree.github.io">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
 </head>
 <body class="light-mode">
+    <!-- Header Section -->
     <header class="sticky-header">
         <nav class="nav-bar">
-            <a href="index.html" class="nav-logo">
-                <img src="logo.png" alt="Configfree Logo" class="logo-icon"> Configfree
+            <a href="index.html" class="nav-logo" aria-label="Configfree Home">
+                <img src="https://configfree.github.io/Configfree/logo.png" alt="Configfree Logo" class="logo-icon" width="32" height="32"> 
+                Configfree
             </a>
             <ul class="nav-links">
-                <li><a href="index.html">صفحه اصلی</a></li>
+                <li><a href="index.html" aria-current="page">صفحه اصلی</a></li>
                 <li class="dropdown">
                     <a href="guide.html">راهنما</a>
                     <ul class="dropdown-menu">
@@ -46,16 +68,21 @@
                 <li><a href="#support">پشتیبانی</a></li>
                 <li><a href="#comments">نظرات</a></li>
             </ul>
-            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="تغییر تم">
+                <span class="theme-icon">🌙</span>
+            </button>
         </nav>
         <div class="header-content">
             <h1>کانفیگ بروز و رایگان برای v2rayNG</h1>
             <p>کانفیگ‌ها توسط ربات هر ۲ ساعت یک‌بار آپدیت می‌شوند</p>
         </div>
     </header>
+
+    <!-- Main Content -->
     <main>
         <div class="container">
-            <div class="slider">
+            <!-- Slider Section -->
+            <div class="slider" aria-label="اسلایدر اطلاعات">
                 <div class="slide active">
                     <h3>کانفیگ‌های باکیفیت</h3>
                     <p>اتصال امن و سریع با آپدیت هر ۲ ساعت!</p>
@@ -64,33 +91,50 @@
                     <h3>پشتیبانی ۲۴/۷</h3>
                     <p>از طریق تلگرام با ما در ارتباط باشید!</p>
                 </div>
-                <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
-                <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+                <button class="slider-btn prev" onclick="changeSlide(-1)" aria-label="اسلاید قبلی">❮</button>
+                <button class="slider-btn next" onclick="changeSlide(1)" aria-label="اسلاید بعدی">❯</button>
             </div>
+
+            <!-- Date Section -->
             <div class="date-section">
                 <h2>کانفیگ‌های رایگان امروز: <span id="jalali-date"></span></h2>
             </div>
-            <div class="intro">
+
+            <!-- Intro Section -->
+            <section class="intro">
                 <h2>چرا Configfree؟</h2>
-                <p>ما کانفیگ‌های تست‌شده و باکیفیت V2Ray، VMess و Shadowsocks رو برای v2rayNG ارائه می‌کنیم. این کانفیگ‌ها هر ۲ ساعت توسط ربات هوشمند ما آپدیت می‌شن تا همیشه به سرورهای فعال دسترسی داشته باشید. برای کانفیگ‌های انحصاری، به <a href="https://t.me/configs_freeiran">کانال تلگرام ما</a> بپیوندید!</p>
-            </div>
-            <div class="filter-section">
+                <p>ما کانفیگ‌های تست‌شده و باکیفیت V2Ray، VMess و Shadowsocks رو برای v2rayNG ارائه می‌کنیم. این کانفیگ‌ها هر ۲ ساعت توسط ربات هوشمند ما آپدیت می‌شن تا همیشه به سرورهای فعال دسترسی داشته باشید. برای کانفیگ‌های انحصاری، به <a href="https://t.me/configs_freeiran" rel="noopener noreferrer">کانال تلگرام ما</a> بپیوندید!</p>
+            </section>
+
+            <!-- Filter Section -->
+            <section class="filter-section">
                 <h2>فیلتر کانفیگ‌ها</h2>
-                <select id="config-filter" onchange="filterConfigs()">
+                <select id="config-filter" onchange="filterConfigs()" aria-label="فیلتر کانفیگ‌ها">
                     <option value="all">همه</option>
                     <option value="v2ray">V2Ray</option>
                     <option value="vmess">VMess</option>
                     <option value="shadowsocks">Shadowsocks</option>
                 </select>
+            </section>
+
+            <!-- Configs Section -->
+            <div id="loading" class="loading" aria-live="polite">
+                <div class="loading-spinner"></div>
+                <span>در حال بارگذاری کانفیگ‌ها...</span>
             </div>
-            <div id="loading" class="loading">در حال بارگذاری کانفیگ‌ها...</div>
-            <div id="config-list" class="config-list"></div>
-            <div class="telegram-section">
+            <div id="config-list" class="config-list" aria-live="polite"></div>
+
+            <!-- Telegram Section -->
+            <section class="telegram-section">
                 <h2>کانفیگ‌های بیشتر در تلگرام</h2>
                 <p>برای دسترسی به کانفیگ‌های انحصاری و آپدیت‌های روزانه، به کانال تلگرام ما بپیوندید!</p>
-                <a href="https://t.me/configs_freeiran" target="_blank" class="telegram-btn">پیوستن به کانال تلگرام</a>
-            </div>
-            <div class="features">
+                <a href="https://t.me/configs_freeiran" target="_blank" rel="noopener noreferrer" class="telegram-btn">
+                    پیوستن به کانال تلگرام
+                </a>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features">
                 <h2>ویژگی‌های کانفیگ‌های ما</h2>
                 <ul>
                     <li>🛡️ اتصال امن و پایدار</li>
@@ -98,52 +142,67 @@
                     <li>🔄 آپدیت خودکار هر ۲ ساعت</li>
                     <li>📱 سازگار با v2rayNG و سایر کلاینت‌ها</li>
                 </ul>
-            </div>
-            <div id="support" class="support-section">
+            </section>
+
+            <!-- Support Section -->
+            <section id="support" class="support-section">
                 <h2>پشتیبانی</h2>
-                <p>سوالی دارید؟ به <a href="https://t.me/configs_freeiran">کانال تلگرام ما</a> پیام بدید یا از طریق ایمیل <a href="mailto:support@configfree.ir">support@configfree.ir</a> با ما در تماس باشید.</p>
-            </div>
-            <div class="news-section">
+                <p>سوالی دارید؟ به <a href="https://t.me/configs_freeiran" target="_blank" rel="noopener noreferrer">کانال تلگرام ما</a> پیام بدید یا از طریق ایمیل <a href="mailto:support@configfree.ir">support@configfree.ir</a> با ما در تماس باشید.</p>
+            </section>
+
+            <!-- News Section -->
+            <section class="news-section">
                 <h2>اخبار و اطلاعیه‌ها</h2>
                 <div class="news-item">
                     <h3>آپدیت جدید v2rayNG</h3>
                     <p>نسخه جدید v2rayNG منتشر شد! برای دانلود به <a href="guide.html#install">صفحه راهنما</a> سر بزنید.</p>
                 </div>
-            </div>
-            <div class="tools-section">
+            </section>
+
+            <!-- Tools Section -->
+            <section class="tools-section">
                 <h2>ابزارهای پیشنهادی</h2>
                 <ul>
-                    <li><a href="https://github.com/2dust/v2rayNG/releases" target="_blank">دانلود v2rayNG (اندروید)</a></li>
-                    <li><a href="https://github.com/v2ray/v2ray-core/releases" target="_blank">دانلود V2Ray Core (ویندوز/مک)</a></li>
-                    <li><a href="https://shadowsocks.org/en/download/clients.html" target="_blank">دانلود Shadowsocks</a></li>
+                    <li><a href="https://github.com/2dust/v2rayNG/releases" target="_blank" rel="noopener noreferrer">دانلود v2rayNG (اندروید)</a></li>
+                    <li><a href="https://github.com/v2ray/v2ray-core/releases" target="_blank" rel="noopener noreferrer">دانلود V2Ray Core (ویندوز/مک)</a></li>
+                    <li><a href="https://shadowsocks.org/en/download/clients.html" target="_blank" rel="noopener noreferrer">دانلود Shadowsocks</a></li>
                 </ul>
-            </div>
-            <div id="comments" class="comments-section">
+            </section>
+
+            <!-- Comments Section -->
+            <section id="comments" class="comments-section">
                 <h2>نظرات کاربران</h2>
                 <form id="comment-form">
-                    <input type="text" id="comment-name" placeholder="نام شما" required>
-                    <textarea id="comment-text" placeholder="نظر خود را بنویسید..." required></textarea>
+                    <input type="text" id="comment-name" placeholder="نام شما" required aria-label="نام شما">
+                    <textarea id="comment-text" placeholder="نظر خود را بنویسید..." required aria-label="متن نظر"></textarea>
                     <button type="submit" class="submit-btn">ارسال نظر</button>
                 </form>
-                <div id="comment-list"></div>
-            </div>
+                <div id="comment-list" aria-live="polite"></div>
+            </section>
         </div>
-        <a href="https://t.me/configs_freeiran" target="_blank" class="floating-telegram-btn">
-            <img src="https://telegram.org/img/t_logo.png" alt="لوگوی تلگرام Configfree" class="telegram-icon"> پیوستن به کانال
+
+        <!-- Floating Telegram Button -->
+        <a href="https://t.me/configs_freeiran" target="_blank" rel="noopener noreferrer" class="floating-telegram-btn" aria-label="پیوستن به کانال تلگرام">
+            <img src="https://telegram.org/img/t_logo.png" alt="لوگوی تلگرام" class="telegram-icon" width="24" height="24">
+            <span>پیوستن به کانال</span>
         </a>
     </main>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <p>حقوق این سایت متعلق به Configfree است | ۱۴۰۴</p>
             <div class="footer-links">
-                <a href="https://t.me/configs_freeiran">کانال تلگرام</a>
+                <a href="https://t.me/configs_freeiran" target="_blank" rel="noopener noreferrer">کانال تلگرام</a>
                 <a href="guide.html">راهنما</a>
                 <a href="#support">پشتیبانی</a>
                 <a href="mailto:support@configfree.ir">ایمیل</a>
             </div>
-            <img src="logo.png" alt="Configfree Logo" class="footer-logo">
+            <img src="https://configfree.github.io/Configfree/logo.png" alt="Configfree Logo" class="footer-logo" width="48" height="48">
         </div>
     </footer>
-    <script src="script.js"></script>
+
+    <!-- JavaScript -->
+    <script src="https://configfree.github.io/Configfree/script.js"></script>
 </body>
-    </html>
+        </html>

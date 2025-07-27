@@ -43,195 +43,192 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="https://configfree.github.io/Configfree/styles.css">
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css">
     
-    <!-- Preload -->
-    <link rel="preload" href="https://configfree.github.io/Configfree/script.js" as="script">
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://configfree.github.io">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
 </head>
 <body class="light-mode">
     <!-- Header -->
     <header class="sticky-header">
         <nav class="nav-bar">
-            <a href="index.html" class="nav-logo" aria-label="بازگشت به صفحه اصلی">
-                <img src="https://configfree.github.io/Configfree/logo.png" alt="Configfree Logo" class="logo-icon" width="32" height="32">
+            <a href="/" class="nav-logo" aria-label="بازگشت به صفحه اصلی">
+                <img src="https://configfree.github.io/Configfree/logo.png" alt="Configfree Logo" class="logo-icon" width="32" height="32" loading="lazy">
                 Configfree
             </a>
             <ul class="nav-links">
-                <li><a href="index.html">صفحه اصلی</a></li>
+                <li><a href="/">صفحه اصلی</a></li>
                 <li class="dropdown">
-                    <a href="guide.html" aria-current="page">راهنما</a>
+                    <a href="/guide.html" aria-current="page">راهنما</a>
                     <ul class="dropdown-menu">
                         <li><a href="#install">نصب v2rayNG</a></li>
                         <li><a href="#usage">استفاده از کانفیگ‌ها</a></li>
                         <li><a href="#troubleshooting">رفع مشکلات</a></li>
                     </ul>
                 </li>
-                <li><a href="index.html#support">پشتیبانی</a></li>
-                <li><a href="index.html#comments">نظرات</a></li>
+                <li><a href="/#support">پشتیبانی</a></li>
+                <li><a href="/#comments">نظرات</a></li>
             </ul>
-            <button class="theme-toggle" onclick="toggleTheme()" aria-label="تغییر تم">
+            <button class="theme-toggle" aria-label="تغییر تم">
                 <span class="theme-icon">🌙</span>
             </button>
         </nav>
         <div class="header-content">
             <h1>راهنمای کامل استفاده از کانفیگ‌ها</h1>
-            <p>آموزش قدم به قدم نصب و راه‌اندازی v2rayNG و کلاینت‌های دیگر</p>
+            <p>آموزش قدم‌به‌قدم نصب و راه‌اندازی v2rayNG و کلاینت‌های دیگر</p>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main>
-        <div class="container">
-            <!-- Installation Section -->
-            <section id="install" class="guide-section">
-                <h2>دانلود و نصب v2rayNG</h2>
-                <div class="guide-card">
-                    <h3>برای دستگاه‌های اندروید:</h3>
-                    <ol>
-                        <li>از طریق لینک‌های زیر آخرین نسخه v2rayNG را دانلود کنید:
-                            <ul>
-                                <li><a href="https://github.com/2dust/v2rayNG/releases/latest" target="_blank" rel="noopener noreferrer">دانلود از GitHub (پیشنهادی)</a></li>
-                                <li><a href="https://play.google.com/store/apps/details?id=com.v2ray.ang" target="_blank" rel="noopener noreferrer">دانلود از Google Play</a></li>
-                            </ul>
-                        </li>
-                        <li>پس از دانلود، فایل APK را نصب کنید</li>
-                        <li>در صورت نیاز، نصب از منابع ناشناس را فعال کنید</li>
-                        <li>پس از نصب، برنامه را باز کنید</li>
-                    </ol>
-                    
-                    <h3>برای ویندوز/مک:</h3>
-                    <ol>
-                        <li>V2Ray Core را از <a href="https://github.com/v2fly/v2ray-core/releases" target="_blank" rel="noopener noreferrer">این لینک</a> دانلود کنید</li>
-                        <li>کلاینت مناسب سیستم عامل خود را انتخاب کنید:
-                            <ul>
-                                <li>ویندوز: <a href="https://github.com/2dust/v2rayN/releases" target="_blank" rel="noopener noreferrer">v2rayN</a></li>
-                                <li>مک: <a href="https://github.com/Cenmrev/V2RayX/releases" target="_blank" rel="noopener noreferrer">V2RayX</a></li>
-                            </ul>
-                        </li>
-                    </ol>
-                    
-                    <div class="guide-note">
-                        <p>⚠️ توجه: همیشه از منابع رسمی دانلود کنید تا از امنیت دستگاه خود مطمئن شوید.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Usage Section -->
-            <section id="usage" class="guide-section">
-                <h2>آموزش استفاده از کانفیگ‌ها</h2>
-                <div class="guide-card">
-                    <h3>مراحل اتصال:</h3>
-                    <ol>
-                        <li>به <a href="index.html">صفحه اصلی</a> مراجعه کنید</li>
-                        <li>یکی از کانفیگ‌های V2Ray یا VMess را انتخاب کنید</li>
-                        <li>روی دکمه «کپی» کلیک کنید</li>
-                        <li>برنامه v2rayNG را باز کنید</li>
-                        <li>روی علامت «+» در پایین صفحه کلیک کنید</li>
-                        <li>گزینه «Import config from clipboard» را انتخاب کنید</li>
-                        <li>کانفیگ را بررسی و ذخیره کنید</li>
-                        <li>سرور اضافه شده را انتخاب کنید</li>
-                        <li>روی دکمه اتصال (دکمه گرد پایین صفحه) کلیک کنید</li>
-                    </ol>
-                    
-                    <div class="guide-image">
-                        <img src="https://configfree.github.io/Configfree/images/connection-guide.png" alt="آموزش اتصال در v2rayNG" width="600" height="400" loading="lazy">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Troubleshooting Section -->
-            <section id="troubleshooting" class="guide-section">
-                <h2>رفع مشکلات متداول</h2>
-                <div class="guide-card">
-                    <div class="troubleshooting-item">
-                        <h3>اتصال برقرار نمی‌شود</h3>
+    <main class="container">
+        <!-- Installation Section -->
+        <section id="install" class="guide-section">
+            <h2>دانلود و نصب v2rayNG</h2>
+            <div class="guide-card">
+                <h3>برای دستگاه‌های اندروید:</h3>
+                <ol>
+                    <li>آخرین نسخه v2rayNG را از لینک‌های زیر دانلود کنید:
                         <ul>
-                            <li>کانفیگ جدیدی از صفحه اصلی دریافت کنید (کانفیگ‌ها هر 2 ساعت آپدیت می‌شوند)</li>
-                            <li>از فعال بودن VPN در دستگاه خود مطمئن شوید</li>
-                            <li>برنامه را مجددا راه‌اندازی کنید</li>
+                            <li><a href="https://github.com/2dust/v2rayNG/releases/latest" target="_blank" rel="noopener noreferrer">دانلود از GitHub (پیشنهادی)</a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=com.v2ray.ang" target="_blank" rel="noopener noreferrer">دانلود از Google Play</a></li>
                         </ul>
+                    </li>
+                    <li>فایل APK را نصب کنید.</li>
+                    <li>در صورت نیاز، نصب از منابع ناشناس را فعال کنید.</li>
+                    <li>برنامه را باز کنید.</li>
+                </ol>
+                
+                <h3>برای ویندوز/مک:</h3>
+                <ol>
+                    <li>V2Ray Core را از <a href="https://github.com/v2fly/v2ray-core/releases" target="_blank" rel="noopener noreferrer">این لینک</a> دانلود کنید.</li>
+                    <li>کلاینت مناسب سیستم‌عامل خود را انتخاب کنید:
+                        <ul>
+                            <li>ویندوز: <a href="https://github.com/2dust/v2rayN/releases" target="_blank" rel="noopener noreferrer">v2rayN</a></li>
+                            <li>مک: <a href="https://github.com/Cenmrev/V2RayX/releases" target="_blank" rel="noopener noreferrer">V2RayX</a></li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <div class="guide-note">
+                    <p>⚠️ توجه: همیشه از منابع رسمی دانلود کنید تا امنیت دستگاه شما تضمین شود.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Section -->
+        <section id="usage" class="guide-section">
+            <h2>آموزش استفاده از کانفیگ‌ها</h2>
+            <div class="guide-card">
+                <h3>مراحل اتصال:</h3>
+                <ol>
+                    <li>به <a href="/">صفحه اصلی</a> مراجعه کنید.</li>
+                    <li>یکی از کانفیگ‌های V2Ray یا VMess را انتخاب کنید.</li>
+                    <li>روی دکمه «کپی» کلیک کنید.</li>
+                    <li>برنامه v2rayNG را باز کنید.</li>
+                    <li>روی علامت «+» در پایین صفحه کلیک کنید.</li>
+                    <li>گزینه «Import config from clipboard» را انتخاب کنید.</li>
+                    <li>کانفیگ را بررسی و ذخیره کنید.</li>
+                    <li>سرور اضافه‌شده را انتخاب کنید.</li>
+                    <li>روی دکمه اتصال کلیک کنید.</li>
+                </ol>
+                
+                <div class="guide-image">
+                    <img src="https://configfree.github.io/Configfree/images/connection-guide.png" alt="آموزش اتصال در v2rayNG" width="600" height="400" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Troubleshooting Section -->
+        <section id="troubleshooting" class="guide-section">
+            <h2>رفع مشکلات متداول</h2>
+            <div class="guide-card">
+                <div class="troubleshooting-item">
+                    <h3>اتصال برقرار نمی‌شود</h3>
+                    <ul>
+                        <li>کانفیگ جدیدی از صفحه اصلی دریافت کنید (آپدیت هر ۲ ساعت).</li>
+                        <li>از فعال بودن VPN مطمئن شوید.</li>
+                        <li>برنامه را مجدداً راه‌اندازی کنید.</li>
+                    </ul>
+                </div>
+                
+                <div class="troubleshooting-item">
+                    <h3>سرعت پایین است</h3>
+                    <ul>
+                        <li>سرور دیگری را امتحان کنید.</li>
+                        <li>از پروتکل‌های مختلف (VMess/VLESS) تست کنید.</li>
+                        <li>اتصال اینترنت خود را بررسی کنید.</li>
+                    </ul>
+                </div>
+                
+                <div class="troubleshooting-item">
+                    <h3>برنامه crash می‌کند</h3>
+                    <ul>
+                        <li>آخرین نسخه برنامه را نصب کنید.</li>
+                        <li>دستگاه خود را ری‌استارت کنید.</li>
+                        <li>در صورت ادامه مشکل، از نسخه پایدارتر استفاده کنید.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Tips -->
+        <section class="guide-section">
+            <h2>نکات پیشرفته</h2>
+            <div class="guide-card">
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <h3>پروتکل‌های امن</h3>
+                        <p>برای امنیت بیشتر، از پروتکل‌های TLS یا WebSocket استفاده کنید.</p>
                     </div>
                     
-                    <div class="troubleshooting-item">
-                        <h3>سرعت پایین است</h3>
-                        <ul>
-                            <li>سرور دیگری را امتحان کنید</li>
-                            <li>از پروتکل‌های مختلف (VMess/VLESS) تست بگیرید</li>
-                            <li>اتصال اینترنت خود را بررسی کنید</li>
-                        </ul>
+                    <div class="tip-item">
+                        <h3>سرورهای بهینه</h3>
+                        <p>برای سرعت بهتر، سرورهای نزدیک به موقعیت جغرافیایی خود را انتخاب کنید.</p>
                     </div>
                     
-                    <div class="troubleshooting-item">
-                        <h3>برنامه crash می‌کند</h3>
-                        <ul>
-                            <li>آخرین نسخه برنامه را نصب کنید</li>
-                            <li>دستگاه خود را restart کنید</li>
-                            <li>در صورت ادامه مشکل، از نسخه پایدارتر استفاده کنید</li>
-                        </ul>
+                    <div class="tip-item">
+                        <h3>مدیریت مصرف باتری</h3>
+                        <p>در اندروید، برنامه را از بهینه‌سازی باتری معاف کنید.</p>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <h3>آپدیت منظم</h3>
+                        <p>همیشه از آخرین نسخه v2rayNG استفاده کنید.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Advanced Tips -->
-            <section class="guide-section">
-                <h2>نکات پیشرفته</h2>
-                <div class="guide-card">
-                    <div class="tips-grid">
-                        <div class="tip-item">
-                            <h3>پروتکل‌های امن</h3>
-                            <p>برای امنیت بیشتر، از پروتکل‌های TLS یا WebSocket استفاده کنید</p>
-                        </div>
-                        
-                        <div class="tip-item">
-                            <h3>سرورهای بهینه</h3>
-                            <p>برای سرعت بهتر، سرورهای نزدیک به موقعیت جغرافیایی خود را انتخاب کنید</p>
-                        </div>
-                        
-                        <div class="tip-item">
-                            <h3>مدیریت مصرف باتری</h3>
-                            <p>در اندروید، برنامه را از بهینه‌سازی باتری معاف کنید</p>
-                        </div>
-                        
-                        <div class="tip-item">
-                            <h3>آپدیت منظم</h3>
-                            <p>همیشه از آخرین نسخه v2rayNG استفاده کنید</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Telegram Section -->
-            <section class="telegram-section">
-                <h2>پشتیبانی فنی</h2>
-                <p>برای دریافت راهنمایی بیشتر و حل مشکلات فنی، به کانال تلگرام ما بپیوندید:</p>
-                <a href="https://t.me/configs_freeiran" target="_blank" rel="noopener noreferrer" class="telegram-btn">
-                    پیوستن به کانال پشتیبانی
-                </a>
-            </section>
-        </div>
-
-        <!-- Floating Button -->
-        <a href="https://t.me/configs_freeiran" target="_blank" rel="noopener noreferrer" class="floating-telegram-btn" aria-label="پیوستن به کانال تلگرام">
-            <img src="https://telegram.org/img/t_logo.png" alt="تلگرام" class="telegram-icon" width="24" height="24">
-            <span>پشتیبانی تلگرام</span>
-        </a>
+        <!-- Telegram Section -->
+        <section class="telegram-section">
+            <h2>پشتیبانی فنی</h2>
+            <p>برای راهنمایی بیشتر و حل مشکلات فنی، به کانال تلگرام ما بپیوندید:</p>
+            <a href="https://t.me/configs_freeiran" target="_blank" rel="noopener noreferrer" class="telegram-btn">پیوستن به کانال پشتیبانی</a>
+        </section>
     </main>
+
+    <!-- Floating Button -->
+    <a href="https://t.me/configs_freeiran" target="_blank" rel="noopener noreferrer" class="floating-telegram-btn" aria-label="پیوستن به کانال تلگرام">
+        <img src="https://telegram.org/img/t_logo.png" alt="تلگرام" class="telegram-icon" width="24" height="24" loading="lazy">
+        <span>پشتیبانی تلگرام</span>
+    </a>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <p>حقوق این سایت متعلق به Configfree است | ۱۴۰۴</p>
             <div class="footer-links">
-                <a href="index.html">صفحه اصلی</a>
-                <a href="guide.html">راهنما</a>
-                <a href="index.html#support">پشتیبانی</a>
+                <a href="/">صفحه اصلی</a>
+                <a href="/guide.html">راهنما</a>
+                <a href="/#support">پشتیبانی</a>
                 <a href="mailto:support@configfree.ir">تماس با ما</a>
             </div>
-            <img src="https://configfree.github.io/Configfree/logo.png" alt="Configfree Logo" class="footer-logo" width="48" height="48">
+            <img src="https://configfree.github.io/Configfree/logo.png" alt="Configfree Logo" class="footer-logo" width="48" height="48" loading="lazy">
         </div>
     </footer>
 
     <!-- JavaScript -->
-    <script src="https://configfree.github.io/Configfree/script.js"></script>
+    <script defer src="https://configfree.github.io/Configfree/script.js"></script>
 </body>
         </html>

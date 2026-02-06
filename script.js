@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     repoUrl: 'https://configfree.github.io/Configfree/',
     configsFile: 'configs.txt',
     commentsFile: 'comments.json',
-    telegramChannel: 'https://t.me/configs_freeiran',
+    telegramChannel: 'https://t.me/ConfigV2Ray_Free',
     updateInterval: 2 * 60 * 60 * 1000, // هر 2 ساعت
     maxConfigs: 100,
     notificationTimeout: 3000 // مدت زمان اعلان (میلی‌ثانیه)
